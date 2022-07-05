@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Hellorap
+Bundle-SymbolicName: hellorap
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: hellorap
+Bundle-RequiredExecutionEnvironment: JavaSE-16
+Require-Bundle: org.eclipse.rap.rwt;bundle-version="[3.0.0,4.0.0)"
+Service-Component: OSGI-INF/contribution.xml

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="eclipse.rap.rwt" type="repository">
+    <properties maven-id="org.eclipse.rap:org.eclipse.rap.rwt:3.21.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/rap/org.eclipse.rap.rwt/3.21.0/org.eclipse.rap.rwt-3.21.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
