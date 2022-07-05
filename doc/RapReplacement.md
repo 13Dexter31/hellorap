@@ -77,9 +77,9 @@ As RAP is hardly maintained and lacks many modern functionalities, it was conclu
   	</tr>
 </table>
 
-### Used Libs
+### Used Libs - WIP
 
-### Functionalities
+### Functionalities - WIP
 
 ## Software Types
 
@@ -87,7 +87,7 @@ In order to structure the software options on the market types get identified.
 Each type hints where the main value of a certain product is concerned to the given scenario.
 As software products that are similar ofter share their main value.
 
-### SWT Based
+### A SWT Based
 
 The Widgets from RAP are based on SWT.
 In case that there is a framework that is also either based on or able to handle SWT, could the migration be way easier. 
@@ -105,9 +105,6 @@ In case that there is a framework that is also either based on or able to handle
 - some problems might stay as the fundament is the same
 
 ### B Java Based
-
-The current system is deployed using the Equinox, an OSGi implementation handling Java Bundles.
-If its gets decided to again use a Java based framework, its services can get packed into bundles that most likely can get integrated right beside the RAP bundles.
 
 **pro**
 - reduced deployment overhead
@@ -152,34 +149,28 @@ In order to achieve the best possible outcome is it also necessary to not got wi
 **con**
 - prob quite far way from current system
 
-## Migration Plan
+## Migration Plan - WIP
 
-Not so promissing: https://techcommunity.microsoft.com/t5/exchange-team-blog/troubleshooting-slow-migrations/ba-p/1795706
+One of the requirements is the need for a slow migration.
+Meaning that the development based on the new framework would happen in smaller steps that slowly append and sooner or later replace RAP.
+
+### Library based
+
+In order to minimize the setup overhead it would be nice to make use of a library importing the functionality of anb other framework.
+Either RAP functionalities to another framework or the functionalities of the new framework to RAP.
+
+### OSGi based
+
+The current system is deployed using the Equinox, an OSGi implementation handling Java Bundles.
+If its gets decided to again use a Java based framework, its services can get packed into bundles that most likely can get integrated right beside the RAP bundles.
+
+### Dual System
+
+Systems that don't fit the other plans have to get developed and deployed independently of each other linking to each other.
+
+### ...
 
 ## Software Considerations
-
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Pro</th>
-		<th>Con</th>
-	</tr>
-	<tr>
-		<td>openxava</td>
-		<td><p>- very simple<br>-java based</p></td>
-		<td><p>- not as big<br>- seemingly quite specialized in simple database management</p></td>
-	</tr>
-	<tr>
-		<td>Flutter</td>
-		<td><p>- dart i very similar to java<br>- used widget tools are quite similar</p></td>
-		<td><p></p></td>
-	</tr>
-	<tr>
-		<td>Spring</td>
-		<td><p>- java based<br>- cooperation might be possible</p></td>
-		<td><p></p></td>
-	</tr>
-</table>
 
 ### Java GUI Frameworks
 
@@ -231,44 +222,66 @@ https://www.openxava.org/ate/eclipse-rap-alternative
   - SWT/Swing Designer
     - https://www.genuitec.com/docs/visual-design/java-gui-design-using-swtswing/
 
-#### Tapestry
+#### Maintainable Considerations without Description
 
-https://tapestry.apache.org/?src=www.discoversdk.com
+- Tapestry
+- Stripes
+- Grails
+- JHipster
+- Apache Struts
+- Jmix
+- Apache Wicket
+- Spark
 
-#### Stripes
+### Newcomer
 
-https://stripesframework.atlassian.net/wiki/spaces/STRIPES/overview
-
-##### Grails
-
-##### JHipster
-
-##### Apache Struts
-
-##### Jmix
-
-##### Apache Wicket
-
-##### Spark
-
-#### Others
-
-##### Flutter
+#### Flutter
 
 Type: B
 
 **pro**
 - dart is very close to java
+- dart is used for frontend and backend
 - flutters widgets are close the SWT widgets
-- copy and past was never easier => https://flutter.github.io/samples/#
+- copy and past was never easier
+  - https://flutter.github.io/samples/#
+  - https://blog.logrocket.com/tag/flutter/
 - high reputation in being fun to use/learn
 - strong rising popularity
 - most likely will not only stay around but become a standard
+- very fast
+- widgets provide a decent design very fast
 
 **con**
 - quite jung yet -> rapidly changing
+- design is good but specific looks may require more configuration
 
-##### React
+comparison to react:
+- https://medium.com/flutter-community/pros-and-cons-of-using-flutter-1f5d1269a4b9
+- <a href="https://blog.logrocket.com/why-flutter-is-overtaking-react-native/">Why Flutter is overtaking React Native</a>
+- git stars are already equal
+  - https://github.com/flutter/flutter
+  - https://github.com/facebook/react-native
+- specific attribute comparison
+  - direct
+    - Language: while JavaScript is dynamic can dart be as well dynamic as static
+    - security: both are good but the usage of static variable is by default safer
+    - performance: both are very good but Flutter is a bit better as it compiles directly native without the JavaScript bridge in React
+    - project size: flutter tends to be bigger and React can get reduced even more by using additional tools
+    - layout: both based on Flexbox, similar but flutter seams to have more advances default construction objects
+  - indirect
+    - Publisher Documentation: both are good but the one from flutter is more straight forward
+    - popularity:
+      - git: <a href="https://github.com/facebook/react-native">React</a> is slightly above <a href="https://github.com/flutter/flutter">Flutter</a>
+      - blogs: As React is longer around does it have more community blogs to read about. But Flutter-Devs are more active on social media websites as Twitter and Reddit
+    - IDE defaults: reacts => Visual Studio, Flutter => Android Studio of IntelliJ
+
+### Java Script
+
+JavaScript is still the most used language in therms of frontend web development.
+Often it is possible to use TypeScript instead too.
+
+#### React
 
 **pro**
 - strong community
@@ -278,7 +291,7 @@ Type: B
 **con**
 - js is quite far away from java
 
-##### jQuery
+#### jQuery
 
 **pro**
 
@@ -286,7 +299,7 @@ Type: B
 - js is quite far away from java
 - slowly in decline
 
-##### Express
+#### Express
 
 **pro**
 - good caching
@@ -295,43 +308,38 @@ Type: B
 - easy scalable
 - full stack
 
-##### Angular
+#### Angular
 
 **pro**
 - high security
 -
 
-##### Vue
+#### Vue
 
 - rather go for react or angular
 
-##### Django
+### Python => Django
 
 Best opportunity when going for a python web app but beside that not further mentionable.
 
-### Analysing main candidates
+## Main Candidates
 
 <table style="border: 0 solid; border-collapse: collapse;">
   <tr style="border: 1px solid black;">
     <th>Product</th>
-    <th>Clustering</th>
+    <th>Software Type</th>
+    <th>Migration</th>
     <th>Up to Date</th>
-    <th>Easy to Migrate</th>
     <th>Modifiability</th>
     <th>Easy to Learn</th>
     <th>Style Option</th>
+    <th>Documentation</th>
+    <th>Community</th>
   </tr>
   <tr style="border: 1px dotted;">
-    <td><a href="https://www.openxava.org/ate/eclipse-rap-alternative">openxava</a></td>
+    <td><a href=""></a>Spring</td>
+    <td>B Java Based</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr style="border: 1px dotted;">
-    <td><a href="https://tapestry.apache.org/?src=www.discoversdk.com">Tapestry</a></td>
     <td></td>
     <td></td>
     <td></td>
@@ -340,16 +348,9 @@ Best opportunity when going for a python web app but beside that not further men
     <td></td>
   </tr>
   <tr style="border: 1px dotted;">
-    <td><a href="https://stripesframework.atlassian.net/wiki/spaces/STRIPES/overview">Stripes</a></td>
+    <td><a href=""></a>Flutter</td>
+    <td>C Similar Technology</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr style="border: 1px dotted;">
-    <td><a href="">Flutter</a></td>
     <td></td>
     <td></td>
     <td></td>
@@ -358,16 +359,9 @@ Best opportunity when going for a python web app but beside that not further men
     <td></td>
   </tr>
   <tr style="border: 1px dotted;">
-    <td><a href="">React</a></td>
+    <td><a href=""></a>React</td>
+    <td>D "Best" Available Framework </td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr style="border: 1px dotted;">
-    <td><a href="">Spring Framework</a></td>
     <td></td>
     <td></td>
     <td></td>
@@ -376,52 +370,9 @@ Best opportunity when going for a python web app but beside that not further men
     <td></td>
   </tr>
   <tr style="border: 1px dotted;">
-    <td><a href="">Grails</a></td>
+    <td><a href="">Django</a></td>
+    <td>E Python Based</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr style="border: 1px dotted;">
-    <td><a href="">JHipster</a></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr style="border: 1px dotted;">
-    <td><a href="">Apache Struts</a></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr style="border: 1px dotted;">
-    <td><a href="">Jmix</a></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr style="border: 1px dotted;">
-    <td><a href="">Apache Wicket</a></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr style="border: 1px dotted;">
-    <td><a href="">Spark</a></td>
     <td></td>
     <td></td>
     <td></td>
@@ -430,14 +381,4 @@ Best opportunity when going for a python web app but beside that not further men
     <td></td>
   </tr>
 </table>
-
-## Questions
-
-- Funktionalität außerhalb von einstellungen?
-- wie werden die daten abgespeichert?
-    - Format
-        - SQL
-        -
-    - Ort
-- Wer hat noch umgestellt von RAP - Circle
 
